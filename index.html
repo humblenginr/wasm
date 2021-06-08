@@ -8,8 +8,9 @@
       const WL = new WasmLoader();
       WL.wasm('/build/optimized.wasm')
         .then(instance => {
-        const { minusOne } = instance;
-
+        const { memory, readMemory } = instance;
+				
+				const memoryArray = new Uint8Array(memory)
         document.write(minusOne(44));
         });
   </script>
